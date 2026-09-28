@@ -98,20 +98,12 @@
 ### 🎓 Education, Honors & Certifications
 
 - **BSc in Computer Engineering**, Universitat Oberta de Catalunya (GPA: **8.52 / 10**).
-  - **7 Distinctions & Honours** (*Matrículas de Honor / Sobresalientes*): Mathematical Analysis (10/10 MH), Final Thesis (10/10 MH), Artificial Intelligence, Cryptography, Network Security, Component & Distributed Systems Engineering.
+  - **7 Course Distinctions & Honours**: Mathematical Analysis (10/10 with Honours), Final Thesis (10/10 with Honours), Artificial Intelligence, Cryptography, Network Security, Component & Distributed Systems Engineering.
 - **Red Hat Certified Specialist in Cloud-native Microservices Development with Quarkus** (DO378, Feb 2025) · [Credly Badge](https://www.credly.com/badges/fd113b08-8667-418f-b513-5b9d83cf7cd2).
 - **Winner Santander Explorer UA 2019 & Campus & Technology Award**: Silicon Valley tech immersion trip (San Francisco, UC Berkeley, Stanford mentors) for **Wazime** (ultrasonic near-field data transfer).
 
 ---
 
 <div align="center">
-
-```
-  ____  _             ZW        _       
- / ___|(_)_ ____   _____ _ __ | |_     
- \___ \| | '__\ \ / / _ \ '_ \| __|    Pablo Sirvent
-  ___) | | |   \ V /  __/ | | | |_     https://sirvent.ai
- |____/|_|_|    \_/ \___|_| |_|\__|    pablo@purebyte.ai
-```
-
+  <p>© 2026 Pablo Sirvent · <a href="https://sirvent.ai">sirvent.ai</a></p>
 </div>
