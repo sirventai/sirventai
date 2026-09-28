@@ -6,7 +6,7 @@
 
 [![Website](https://img.shields.io/badge/Website-sirvent.ai-0969da?style=flat-square&logo=googlechrome&logoColor=white)](https://sirvent.ai)
 [![PureByte](https://img.shields.io/badge/PureByte-purebyte.ai-10b981?style=flat-square&logo=fastapi&logoColor=white)](https://purebyte.ai)
-[![Paper DOI](https://img.shields.io/badge/Zenodo%20DOI-10.5281%2Fzenodo.23020056-blue?style=flat-square&logo=doi&logoColor=white)](https://doi.org/10.5281/zenodo.23020056)
+[![Paper DOI](https://img.shields.io/badge/Zenodo%20DOI-10.5281%2Fzenodo.23020056-blue?style=flat-square&logo=doi&logoColor=white)](https://zenodo.org/records/23020056)
 [![GitHub](https://img.shields.io/badge/GitHub-@sirventai-181717?style=flat-square&logo=github&logoColor=white)](https://github.com/sirventai)
 [![Twitter](https://img.shields.io/badge/𝕏-@sirventai-000000?style=flat-square&logo=x&logoColor=white)](https://x.com/sirventai)
 [![Blog](https://img.shields.io/badge/Medium-Blog-00ab6c?style=flat-square&logo=medium&logoColor=white)](https://sirventai.medium.com)
@@ -19,7 +19,7 @@
 
 ### ⚡ Flagship Project: PureByte
 
-> **"SLMs are the future."** — Dependency-free C++17 runtime & tiny learned sequence models (1–29 MiB) that run offline on ordinary CPUs in **<1 ms** without GPUs.
+Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that run offline on ordinary CPUs in **<1 ms** without GPUs.
 
 ```
  [Raw Byte Stream]  ──────── (Tokenizer-free / No Vocab Overhead)
@@ -33,7 +33,7 @@
  [C++17 SIMD Runtime]   ──── AVX-512 · AVX2 · ARM NEON (Zero External Dependencies)
 ```
 
-#### Benchmark Results (from our [109-Page Technical Paper](https://doi.org/10.5281/zenodo.23020056))
+#### Benchmark Results (from our [109-Page Technical Paper](https://zenodo.org/records/23020056))
 
 | Specialist Model | Parameters | Weights File | CPU Latency (12 cores) | Benchmark Metric | vs Industry Baselines |
 | :--- | :---: | :---: | :---: | :--- | :--- |
@@ -87,11 +87,11 @@
 
 ### 💼 Career Snapshot
 
-- **[Indra Group](https://www.indracompany.com/)** *(2023 – Present)*: Senior Software Engineer (Senior Specialist). Scalable backend microservices (Java 21, Kotlin, Quarkus, Kafka, Kubernetes) for high-criticality systems in defense and government programmes.
-- **[Embention](https://www.embention.com/)** *(2022 – 2023)*: Senior Software Engineer. Critical autopilot backend systems and real-time HIL/SIL flight simulators for Veronte UAV autopilots (Amazon Prime Air tier; 70+ countries).
+- **[Indra Group](https://www.indracompany.com/)** *(2023 - Present)*: Senior Software Engineer (Senior Specialist). Scalable backend microservices (Java 21, Kotlin, Quarkus, Kafka, Kubernetes) for high-criticality systems in defense and government programmes.
+- **[Embention](https://www.embention.com/)** *(2022 - 2023)*: Senior Software Engineer. Autopilot backend systems and real-time HIL/SIL flight simulators for Veronte UAV autopilots (Amazon Prime Air tier, 70+ countries).
 - **[Afterbanks Arcopay](https://www.afterbanks.com/)** *(2021)*: Software Engineer. PSD2 open banking aggregation platform (Java, Spring, MySQL).
-- **[Orizon](https://orizon.es/)** *(2021 – 2022)*: Software Engineer. Mainframe CPU performance engineering and profiling for Spain's largest commercial banks.
-- **[GESIO](https://www.gesio.com/)** *(2017 – 2021)*: Software Engineer. Led 3-person backend team for cloud ERP & POS SaaS (3,000+ businesses).
+- **[Orizon](https://orizon.es/)** *(2021 - 2022)*: Software Engineer. Mainframe CPU performance engineering and profiling for Spain's largest commercial banks.
+- **[GESIO](https://www.gesio.com/)** *(2017 - 2021)*: Software Engineer. Led 3-person backend team for cloud ERP and POS SaaS (3,000+ businesses).
 
 ---
 
