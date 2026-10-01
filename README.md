@@ -19,7 +19,7 @@
 
 ### ⚡ Flagship Project: PureByte
 
-Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that run offline on ordinary CPUs in **<1 ms** without GPUs.
+Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that run offline on ordinary CPUs, about a millisecond per small decision (0.8 to 1.5 ms on 8 threads of a desktop CPU), without GPUs.
 
 ```
  [Raw Byte Stream]  ──────── (Tokenizer-free / No Vocab Overhead)
@@ -30,19 +30,20 @@ Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that r
         ▼
  [Typed Decision Heads] ──── Output exact Byte Spans, Decisions & Scores (0 Hallucination)
         ▲
- [C++17 SIMD Runtime]   ──── AVX-512 · AVX2 · ARM NEON (Zero External Dependencies)
+ [C++17 SIMD Runtime]   ──── AVX2 · ARM NEON · portable scalar (Zero External Dependencies)
 ```
 
 #### Benchmark Results (from our [109-Page Technical Paper](https://zenodo.org/records/23020056))
 
-| Specialist Model | Parameters | Weights File | CPU Latency (12 cores) | Benchmark Metric | vs Industry Baselines |
+| Released model | Parameters | Weights file | One 64-byte decision (8 threads, desktop CPU) | Benchmark result | Baseline on the same benchmark |
 | :--- | :---: | :---: | :---: | :--- | :--- |
-| **CredSpecialist** | 1.9M | **1.1 MB** | **0.82 ms** | **3.5x Recall** on CredData (168 repos) | Outperforms Gitleaks default rules |
-| **PIISpecialist** | 8.3M | **3.2 MB** | **1.20 ms** | **F2 0.769** on PII Masking Benchmark | Outperforms OpenAI Privacy Filter (1.4B) |
-| **BaseSpecialist** | 12.6M | **4.5 MB** | **1.80 ms** | Exact bit-parity with PyTorch | **13x faster/core**, **85x end-to-end** |
+| **secrets-code** | 1.9M | **0.98 MiB** | **0.82 ms** | **F1 0.797** on CredData (164 repos): 3.5x the labeled credential lines found by gitleaks (3.1x on all 168) | gitleaks default rules: F1 0.337 (higher precision, 0.905 vs 0.879) |
+| **pii** | 8.3M | **4.5 MiB** | **0.89 ms** | **F2 0.769** on the PII Masking Benchmark | OpenAI Privacy Filter (1.4B parameters): F2 0.662 |
+| **secrets-bin** | 54M | **28.8 MiB** | **1.45 ms** | **360 of 360** credentials on a synthetic probe cut from real binaries; 1 to 12 false alarms per set of clean binaries | strings + regex: recall 0.803 on the same probe |
 
-- **Standalone C++17 Engine:** Zero external dependencies, pure SIMD intrinsics (AVX-512, AVX2, NEON).
-- **Automated Verification:** 400+ unit and regression tests ensuring identical output across hardware architectures.
+- **Standalone C++17 Engine:** Zero external dependencies; SIMD kernels for AVX2 and ARM NEON plus a portable scalar kernel.
+- **Automated Verification:** About 400 tests across the two repositories. On each platform, every kernel and thread count gives bit-identical results, and decisions are expected to agree across platforms.
+- **Honest limits:** Confidence is not calibrated yet, and none of the three examples met every pre-registered criterion as first written. Both are documented in the paper.
 - **Code Repositories:** [purebyte-ai/purebyte](https://github.com/purebyte-ai/purebyte) *(Runtime)* · [purebyte-ai/purebyte-train](https://github.com/purebyte-ai/purebyte-train) *(Training Stack)*
 
 ---
@@ -53,12 +54,12 @@ Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that r
   <tr>
     <td width="25%"><strong>AI Systems & Performance</strong></td>
     <td>
-      <img src="https://img.shields.io/badge/C++17-SIMD%20(AVX512%2FAVX2%2FNEON)-00599C?style=flat-square&logo=c%2B%2B&logoColor=white" />
+      <img src="https://img.shields.io/badge/C++17-SIMD%20(AVX2%2FNEON)-00599C?style=flat-square&logo=c%2B%2B&logoColor=white" />
       <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white" />
       <img src="https://img.shields.io/badge/PyTorch-Deep%20Learning-EE4C2C?style=flat-square&logo=pytorch&logoColor=white" />
       <img src="https://img.shields.io/badge/Mamba--2-State%20Space%20Models-8A2BE2?style=flat-square" />
       <img src="https://img.shields.io/badge/Quantization-1.58--bit%20Ternary%20QAT-orange?style=flat-square" />
-      <img src="https://img.shields.io/badge/Linux-Kernel%20Profiling%20&%20Perf-FCC624?style=flat-square&logo=linux&logoColor=black" />
+      <img src="https://img.shields.io/badge/Linux-Performance%20Profiling-FCC624?style=flat-square&logo=linux&logoColor=black" />
     </td>
   </tr>
   <tr>
@@ -77,8 +78,8 @@ Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that r
     <td width="25%"><strong>Security & Systems</strong></td>
     <td>
       <img src="https://img.shields.io/badge/Zero--Trust-Edge%20Gateways-critical?style=flat-square" />
-      <img src="https://img.shields.io/badge/Cryptography-Post--Quantum%20(Kyber%2FDilithium)-darkgreen?style=flat-square" />
-      <img src="https://img.shields.io/badge/Hard%20Real--Time-HIL%20%2F%20SIL%20Simulators-blueviolet?style=flat-square" />
+      <img src="https://img.shields.io/badge/Applied%20Cryptography-X25519%20%2F%20AES--256--GCM-darkgreen?style=flat-square" />
+      <img src="https://img.shields.io/badge/Real--Time-HIL%20%2F%20SIL%20Simulation-blueviolet?style=flat-square" />
     </td>
   </tr>
 </table>
@@ -88,18 +89,19 @@ Dependency-free C++17 runtime and tiny learned sequence models (1-29 MiB) that r
 ### 💼 Career Snapshot
 
 - **[Indra Group](https://www.indracompany.com/)** *(2023 - Present)*: Senior Software Engineer (Senior Specialist). Scalable backend microservices (Java 21, Kotlin, Quarkus, Kafka, Kubernetes) for high-criticality systems in defense and government programmes.
-- **[Embention](https://www.embention.com/)** *(2022 - 2023)*: Senior Software Engineer. Autopilot backend systems and real-time HIL/SIL flight simulators for Veronte UAV autopilots (Amazon Prime Air tier, 70+ countries).
+- **[Embention](https://www.embention.com/)** *(2022 - 2023)*: Senior Software Engineer. Autopilot backend systems and real-time HIL/SIL flight simulation backends for Veronte autopilots, now used by Amazon Prime Air; customers in 70+ countries.
+- **[Orizon](https://orizon.es/)** *(2021)*: Software Engineer. Performance optimisation of mainframe banking workloads for Spain's largest banks.
 - **[Afterbanks Arcopay](https://www.afterbanks.com/)** *(2021)*: Software Engineer. PSD2 open banking aggregation platform (Java, Spring, MySQL).
-- **[Orizon](https://orizon.es/)** *(2021 - 2022)*: Software Engineer. Mainframe CPU performance engineering and profiling for Spain's largest commercial banks.
-- **[GESIO](https://www.gesio.com/)** *(2017 - 2021)*: Software Engineer. Led 3-person backend team for cloud ERP and POS SaaS (3,000+ businesses).
+- **[GESIO](https://www.gesio.com/)** *(2017 - 2021)*: Software Engineer. Led the 3-person eCommerce backend team (50+ customers) of an online ERP & POS SaaS with 3,000+ installations.
 
 ---
 
 ### 🎓 Education, Honors & Certifications
 
-- **BSc in Computer Engineering**, Universitat Oberta de Catalunya (GPA: **8.52 / 10**).
-  - **7 Course Distinctions & Honours**: Mathematical Analysis (10/10 with Honours), Final Thesis (10/10 with Honours), Artificial Intelligence, Cryptography, Network Security, Component & Distributed Systems Engineering.
-- **Red Hat Certified Specialist in Cloud-native Microservices Development with Quarkus** (DO378, Feb 2025) · [Credly Badge](https://www.credly.com/badges/fd113b08-8667-418f-b513-5b9d83cf7cd2).
+- **BSc in Computer Engineering**, Universitat Oberta de Catalunya, 2026 (GPA: **8.52 / 10**).
+  - **Final thesis: 9.9 / 10 with Honours** (Matrícula de Honor).
+  - **Top grades:** Mathematical Analysis (10/10), Artificial Intelligence (9.7), Cryptography (9.7), Network Security (9.7), Component & Distributed Systems Engineering (9.4), Software Development Project (9.1).
+- **Red Hat: Cloud-native Microservices Development with Quarkus** (DO378, Feb 2025) · [Credly Badge](https://www.credly.com/badges/fd113b08-8667-418f-b513-5b9d83cf7cd2).
 - **Winner Santander Explorer UA 2019 & Campus & Technology Award**: Silicon Valley tech immersion trip (San Francisco, UC Berkeley, Stanford mentors) for **Wazime** (ultrasonic near-field data transfer).
 
 ---
